@@ -1,3 +1,79 @@
-Welcome to the starcraft-bot-in-fsharp wiki!
+---------------
+| StarcraftAI on BWAPI 3.6   |
+---------------
 
-The project based on Chris Smith's work from here. Now it's updated to the latest version of BWAPI 3.6 (Jun 9, 2011) and now works with BWTA map analyzer.
+The BWAPI web site    http://code.google.com/p/bwapi/
+
+
+1. Introduction
+------------------------
+
+Build Instructions:
+
+1. Extract the entire zip to a folder on your computer.
+
+2. Copy the contents of Chaoslauncher/ to your Chaos Launcher folder.
+
+3. Copy the contents of Starcraft/ to your actual Starcraft folder.
+
+4. Copy the contents of WINDOWS/ to your C:\WINDOWS or C:\WINNT folder (which
+   ever your version of Windows has).  You can actually copy these Dlls to anywhere
+   on your system PATH.  
+
+
+All three projects are now built. If you do not intend to build any projects or do 
+not have Visual C++ installed, then you must install the Visual C++ Redistributables
+(vcredist_x86.exe) included in this archive in order to use BWAPI.
+
+To run the Example AI Module:
+
+1. Copy Release/ExampleAIModule.dll to
+   <starcraft folder>/bwapi-data/AI/ExampleAIModule.dll
+
+2. Open <starcraft folder>/bwapi-data/bwapi.ini and set ai to
+   bwapi-data/AI/ExampleAIModule.dll if it isn't already.
+   
+3. Run Chaoslauncher with BWAPI Injector checked. You can also check W-MODE
+   to have Broodwar run in a window rather than full-screen.
+
+4. Start Starcraft: Broodwar and create a match.
+
+   
+To run the Example AI Client:
+
+1. Open <starcraft folder>/bwapi-data/bwapi.ini and set ai_dll to NULL (or some
+   other file name that doesn't exist).
+
+2. Run Release/ExampleAIClient.exe
+
+3. Run Chaoslauncher with BWAPI Injector checked.
+
+4. Start Starcraft: Broodwar and create a match.
+
+
+Debug Mode
+----------
+To run either the AI Module in debug mode,
+compile the projects in DEBUG mode and copy the files from
+Chaoslauncher/Debug/ to your Chaoslauncher folder.
+
+2. The BroodWar Terrain Analyzer
+--------------------------------
+
+   This release of BWAPI also comes with BWTA, the Brood War Terrain
+Analyzer, which analyzes the map and locates the choke points and possible
+expansion locations. BWTA is still a work-in-progress and does not work on
+every map, so it may crash the game. To run BWTA and analyze a map, type
+"/analyze" in the game chat while playing a match with either the Example AI
+Module loaded or the Example AI Client running. This will freeze the game for
+a couple minutes while BWTA analyzes the map. Once BWTA is done analyzing the
+map, the game will unfreeze and superimpose the outlines of regions,
+chokepoints, and base locations on the screen using BWAPI's draw commands.
+For more information, visit:  http://code.google.com/p/bwta/
+
+3. Basic AI Module
+------------------
+
+
+4. Bug Reports
+--------------

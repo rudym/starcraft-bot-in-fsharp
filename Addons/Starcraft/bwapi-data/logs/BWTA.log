@@ -1,0 +1,53 @@
+Analyzing new map...
+Found 0 mineral clusters.
+Calculated base build map.
+Calculated connected components.
+Calculated base locations.
+Simplified polygons.
+Extracted polygons.
+Created voronoi diagram.
+Verified voronoi diagram.
+Got voronoi edges.
+Inserted polygons into arrangement.
+Added voronoi edges.
+Identifying Region Nodes
+Identifying Chokepoint Nodes
+Merging regions
+Done Identifying Chokepoint Nodes
+Merged regions.
+Removed voronoi edges.
+Finding regions.
+Finding chokepoints and linking them to regions.
+Linking regions to chokepoints.
+Calculated base location properties.
+Created result sets.
+running time: 0.115000
+Analyzed map.
+Saved map data.
+Recognized map, loading map data...
+Analyzing new map...
+Found 0 mineral clusters.
+Calculated base build map.
+Calculated connected components.
+Calculated base locations.
+Simplified polygons.
+Extracted polygons.
+Created voronoi diagram.
+Verified voronoi diagram.
+Got voronoi edges.
+Inserted polygons into arrangement.
+Added voronoi edges.
+Identifying Region Nodes
+Identifying Chokepoint Nodes
+Merging regions
+Done Identifying Chokepoint Nodes
+Merged regions.
+Removed voronoi edges.
+Finding regions.
+Finding chokepoints and linking them to regions.
+Linking regions to chokepoints.
+Calculated base location properties.
+Created result sets.
+running time: 0.030000
+Analyzed map.
+Saved map data.
