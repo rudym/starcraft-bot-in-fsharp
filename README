@@ -1,10 +1,10 @@
 ---------------
 | starcraft-bot-in-fsharp on BWAPI 3.6  |
-|    based on Chris Smith's sources     |
+|    based on Chris Smith's sources       |
 ---------------
 
-The BWAPI web site    http://code.google.com/p/bwapi/
-The prelude				  http://blogs.msdn.com/b/chrsmith/archive/2010/03/18/writing-a-starcraft-bot-in-f.aspx
+The BWAPI web site	http://code.google.com/p/bwapi/
+The prelude	http://blogs.msdn.com/b/chrsmith/archive/2010/03/18/writing-a-starcraft-bot-in-f.aspx
 ------------------------
 
 Instructions to get ready:
@@ -21,15 +21,15 @@ Instructions to get ready:
 
 5. Working with sources:
 
-	a. There are two solutions. First is StarCraftConnector  which in output gives StarCraftConnector.dll, which
-		 is the C++ library built on top of BWAPI that broadcasts game state to a socket. Later 
-		 a C# application will listen to that data and send messages back to the StarCraft game.
-		 For now it's a VS2008 project.
-		 
-		 1. Build solution.
-		 1. Copy "bin" folder from Extra to your StarCraftConnector folder. 
-		 2. Enter the solution directory StarCraftConnector\bin\Release and open 
-		 "AIModuleLoader to StarcraftConnector" shortcut. It will get ready your builds of strcraftconnector for the game.
+	a. There are two solutions. First is StarCraftConnector  which in output gives StarCraftConnector.dll, 
+	which is the C++ library built on top of BWAPI that broadcasts game state to a socket. Later 
+	 a C# application will listen to that data and send messages back to the StarCraft game.
+	 For now it's a VS2008 project.
+	 
+	 1. Build solution.
+	 2. Copy "bin" folder from Extra to your StarCraftConnector folder. 
+	 3. Enter the solution directory StarCraftConnector\bin\Release and open 
+	 "AIModuleLoader to StarcraftConnector" shortcut. It will get ready your builds of strcraftconnector for the game.
 
 	b. Second solution (VS2010) divided by two projects:
 		1. The StarCraftBot9K Client (C#) will listen for those events 
@@ -37,5 +37,4 @@ Instructions to get ready:
 	As Chris already written just unleash StarCraftBot9K! 
 	Simply start run the application. It will begin listening to the socket until StarCraftConnector begins broadcasting.
 	
-6. While you started "AIModuleLoader to StarcraftConnector" and "StarCraftBot9KClient" just open Chaoslauncher from Extra,
-	open the game and start custom battle. That's it!
+6. While you started "AIModuleLoader to StarcraftConnector" and "StarCraftBot9KClient" just open Chaoslauncher from Extra, open the game and start custom battle. That's it!
