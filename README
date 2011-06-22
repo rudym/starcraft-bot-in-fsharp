@@ -1,16 +1,15 @@
 ---------------
-| StarcraftAI on BWAPI 3.6   |
+| starcraft-bot-in-fsharp on BWAPI 3.6  |
+|    based on Chris Smith's sources     |
 ---------------
 
 The BWAPI web site    http://code.google.com/p/bwapi/
-
-
-1. Introduction
+The prelude				  http://blogs.msdn.com/b/chrsmith/archive/2010/03/18/writing-a-starcraft-bot-in-f.aspx
 ------------------------
 
-Build Instructions:
+Instructions to get ready:
 
-1. Extract the entire zip to a folder on your computer.
+1. Open the folder named Extra.
 
 2. Copy the contents of Chaoslauncher/ to your Chaos Launcher folder.
 
@@ -20,60 +19,23 @@ Build Instructions:
    ever your version of Windows has).  You can actually copy these Dlls to anywhere
    on your system PATH.  
 
+5. Working with sources:
 
-All three projects are now built. If you do not intend to build any projects or do 
-not have Visual C++ installed, then you must install the Visual C++ Redistributables
-(vcredist_x86.exe) included in this archive in order to use BWAPI.
+	a. There are two solutions. First is StarCraftConnector  which in output gives StarCraftConnector.dll, which
+		 is the C++ library built on top of BWAPI that broadcasts game state to a socket. Later 
+		 a C# application will listen to that data and send messages back to the StarCraft game.
+		 For now it's a VS2008 project.
+		 
+		 1. Build solution.
+		 1. Copy "bin" folder from Extra to your StarCraftConnector folder. 
+		 2. Enter the solution directory StarCraftConnector\bin\Release and open 
+		 "AIModuleLoader to StarcraftConnector" shortcut. It will get ready your builds of strcraftconnector for the game.
 
-To run the Example AI Module:
-
-1. Copy Release/ExampleAIModule.dll to
-   <starcraft folder>/bwapi-data/AI/ExampleAIModule.dll
-
-2. Open <starcraft folder>/bwapi-data/bwapi.ini and set ai to
-   bwapi-data/AI/ExampleAIModule.dll if it isn't already.
-   
-3. Run Chaoslauncher with BWAPI Injector checked. You can also check W-MODE
-   to have Broodwar run in a window rather than full-screen.
-
-4. Start Starcraft: Broodwar and create a match.
-
-   
-To run the Example AI Client:
-
-1. Open <starcraft folder>/bwapi-data/bwapi.ini and set ai_dll to NULL (or some
-   other file name that doesn't exist).
-
-2. Run Release/ExampleAIClient.exe
-
-3. Run Chaoslauncher with BWAPI Injector checked.
-
-4. Start Starcraft: Broodwar and create a match.
-
-
-Debug Mode
-----------
-To run either the AI Module in debug mode,
-compile the projects in DEBUG mode and copy the files from
-Chaoslauncher/Debug/ to your Chaoslauncher folder.
-
-2. The BroodWar Terrain Analyzer
---------------------------------
-
-   This release of BWAPI also comes with BWTA, the Brood War Terrain
-Analyzer, which analyzes the map and locates the choke points and possible
-expansion locations. BWTA is still a work-in-progress and does not work on
-every map, so it may crash the game. To run BWTA and analyze a map, type
-"/analyze" in the game chat while playing a match with either the Example AI
-Module loaded or the Example AI Client running. This will freeze the game for
-a couple minutes while BWTA analyzes the map. Once BWTA is done analyzing the
-map, the game will unfreeze and superimpose the outlines of regions,
-chokepoints, and base locations on the screen using BWAPI's draw commands.
-For more information, visit:  http://code.google.com/p/bwta/
-
-3. Basic AI Module
-------------------
-
-
-4. Bug Reports
---------------
+	b. Second solution (VS2010) divided by two projects:
+		1. The StarCraftBot9K Client (C#) will listen for those events 
+		2. And finally StarCraftBot9K (F#) will do decision making
+	As Chris already written just unleash StarCraftBot9K! 
+	Simply start run the application. It will begin listening to the socket until StarCraftConnector begins broadcasting.
+	
+6. While you started "AIModuleLoader to StarcraftConnector" and "StarCraftBot9KClient" just open Chaoslauncher from Extra,
+	open the game and start custom battle. That's it!
