@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarCraftBot9KClient", "StarCraftBot9KClient\StarCraftBot9KClient.csproj", "{73A93144-26DC-46D1-A5F4-93FD5C226BDF}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "StarCraftBot9K", "StarCraftBot9K\StarCraftBot9K.fsproj", "{F1E8E07D-2E9D-4B09-ADEF-F8F48C534B58}"
