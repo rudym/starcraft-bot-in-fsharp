@@ -33,7 +33,7 @@ Instructions to get ready:
 	 3. Enter the solution directory StarCraftConnector\bin\Release and open 
 	 "AIModuleLoader to StarcraftConnector" shortcut. It will get ready your builds of strcraftconnector for the game.
 
-	b. Second solution (VS2010) divided by two projects:
+	b. Second solution (VS2012) divided by two projects:
 		1. The StarCraftBot9K Client (C#) will listen for those events 
 		2. And finally StarCraftBot9K (F#) will do decision making
 	As Chris already written just unleash StarCraftBot9K! 
