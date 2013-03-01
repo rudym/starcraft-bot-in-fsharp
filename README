@@ -3,25 +3,23 @@
 |    based on Chris Smith's sources     |
 ---------------
 
-THE PRELUDE		http://blogs.msdn.com/b/chrsmith/archive/2010/03/18/writing-a-starcraft-bot-in-f.aspx
+THE PRELUDE			http://blogs.msdn.com/b/chrsmith/archive/2010/03/18/writing-a-starcraft-bot-in-f.aspx
 
 The BWAPI web site	http://code.google.com/p/bwapi/
 
 ------------------------
 
-Instructions to get ready:
+Instruction:
 
 1. Open the folder named Extra.
 
-2. Copy the contents of Chaoslauncher/ to your Chaos Launcher folder.
-
-3. Copy the contents of Starcraft/ to your actual Starcraft folder.
-
-4. Copy the contents of WINDOWS/ to your C:\WINDOWS or C:\WINNT folder (which
-   ever your version of Windows has).  You can actually copy these Dlls to anywhere
+2. Download last version of BWAPI https://code.google.com/p/bwapi/
+	2.1 Copy the contents of Chaoslauncher/ to your Chaos Launcher folder.
+	2.2 Copy the contents of Starcraft/ to your actual Starcraft folder.
+	2.3 Copy the contents of WINDOWS/ to your C:\WINDOWS or C:\WINNT folder or...  You can actually copy these Dlls to anywhere
    on your system PATH.  
 
-5. Working with sources:
+3. Working with sources:
 
 	a. There are two solutions. First is StarCraftConnector  which in output gives StarCraftConnector.dll, 
 	which is the C++ library built on top of BWAPI that broadcasts game state to a socket. Later 
@@ -39,4 +37,4 @@ Instructions to get ready:
 	As Chris already written just unleash StarCraftBot9K! 
 	Simply start run the application. It will begin listening to the socket until StarCraftConnector begins broadcasting.
 	
-6. While you started "AIModuleLoader to StarcraftConnector" and "StarCraftBot9KClient" just open Chaoslauncher from Extra, open the game and start custom battle. That's it!
+4. While you started "AIModuleLoader to StarcraftConnector" and "StarCraftBot9KClient" just open Chaoslauncher from Extra, open the game and start custom battle. That's it!
