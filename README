@@ -1,9 +1,9 @@
 ---------------
-| starcraft-bot-in-fsharp on BWAPI 3.6  |
+| starcraft-bot-in-fsharp on BWAPI 3.7.4  |
 |    based on Chris Smith's sources     |
 ---------------
 
-THE PRELUDE	http://blogs.msdn.com/b/chrsmith/archive/2010/03/18/writing-a-starcraft-bot-in-f.aspx
+THE PRELUDE		http://blogs.msdn.com/b/chrsmith/archive/2010/03/18/writing-a-starcraft-bot-in-f.aspx
 
 The BWAPI web site	http://code.google.com/p/bwapi/
 
