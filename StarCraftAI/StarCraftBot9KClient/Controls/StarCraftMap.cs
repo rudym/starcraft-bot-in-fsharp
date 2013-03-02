@@ -131,7 +131,7 @@ namespace StarCraftBot9KClient.Controls
                     }
 
                     // If it is owned by a player, color the unit there
-                    if (unit.Player < 9) 
+                    if (unit.Player < 9 && unit.Player > 0)  //&& unit.Player > 0 added after for some reason unit.Player started to return -1
                         unitColor = playerColors[unit.Player];
 
                     if (unitColor != null)
