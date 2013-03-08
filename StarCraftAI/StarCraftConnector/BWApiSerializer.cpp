@@ -55,6 +55,7 @@ string BWApiSerializer::GetUnitTypes()
 		bool isFlyer = i->isFlyer();
 		bool isSpellCaster = i->isSpellcaster();
 		bool isWorker = i->isWorker();
+		bool canBuildAddon = i->canBuildAddon();
 		int whatBuilds = i->whatBuilds().first.getID(); //UnitTypes::Terran_Academy.getID()
 
 		// Encode the type as a string
@@ -107,6 +108,8 @@ string BWApiSerializer::GetUnitTypes()
 		unitTypes += toString(isSpellCaster);
 		unitTypes += ",";
 		unitTypes += toString(isWorker);
+		unitTypes += ",";
+		unitTypes += toString(canBuildAddon);
 		unitTypes += ",";
 		unitTypes += toString(whatBuilds);
 

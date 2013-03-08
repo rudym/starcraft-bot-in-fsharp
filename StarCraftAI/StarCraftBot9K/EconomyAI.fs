@@ -4,18 +4,19 @@ open StarCraftBot9K.StarCraft.Constants
 open StarCraftBot9K.StarCraft.BasicOM
 open StarCraftBot9K.StarCraft.Communication
 open StarCraftBot9K.AI.AIBase
+open StarCraftBot9K.AI.AIStructs
 
 /// AI module for managaing your economy. Building drones, vespen geysers, etc.
 let private getEconomyAI (mediator : GameMediator) =
     async {
 
         let currentStateObj = ref mediator.CurrentGameState
-
+        
         while true do
 
             let currentState = mediator.CurrentGameState
-
-            // Build workers with all available cash
+                    
+            // Build workers with all available cash, but without queueing
             if currentState.SupplyUsed < currentState.SupplyTotal &&
                currentState.Minerals >= 50 &&
                currentState.CanProduce.[ int (getWorkerType(g_GameMetadata.PlayerRace)) ] then
@@ -26,11 +27,13 @@ let private getEconomyAI (mediator : GameMediator) =
                     currentState.Units 
                     |> Seq.filter (fun unit -> unit.Player = g_GameMetadata.PlayerID)
                     |> Seq.tryFind (fun unit -> isCommandCenter (enum<UnitID> unit.TypeID))
+                    //|> Seq.tryFind (fun unit -> isBuilding (enum<UnitID> unit.ID))
                     
                 if Option.isSome cmdCenter then
-                    let cmdCenterID = cmdCenter |> Option.get |> (fun unit -> unit.ID)
-                    let cmd = TrainUnit(cmdCenterID, int (getWorkerType(g_GameMetadata.PlayerRace)))
-                    mediator.SendCommand(cmd)
+                    let cmdCenterID, isTraining = cmdCenter |> Option.get |> (fun unit -> unit.ID, unit.isTraining)                    
+                    if isTraining = 0 then
+                        let cmd = TrainUnit(cmdCenterID, int (getWorkerType(g_GameMetadata.PlayerRace)))
+                        mediator.SendCommand(cmd)
 
             // Send idle workers to closest mineral patch
             for scunit in currentState.Units do

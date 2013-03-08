@@ -35,6 +35,7 @@
     <Compile Include="BasicStarCraftOM.fs" />
     <Compile Include="AIBase.fs" />
     <Compile Include="SocketCommunication.fs" />
+    <Compile Include="AIStructs.fs" />
     <Compile Include="EconomyAI.fs" />
   </ItemGroup>
   <ItemGroup>

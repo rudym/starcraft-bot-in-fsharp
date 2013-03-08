@@ -314,6 +314,8 @@ void StarCraftConnector::onFrame()
 		status += ",";
 		status += toString((*i)->getOrder().getID());
 		status += ",";
+		status += toString((*i)->isTraining());
+		status += ",";
 		status += toString((*i)->getResources());
 		status += "|";  // NOTE: This leaves a trailing '|' character
 	} 

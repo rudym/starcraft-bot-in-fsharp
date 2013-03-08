@@ -15,9 +15,9 @@ type BasicUnitInfo =
         Energy    : int
         OrderTimer : int
         OrderID    : int
+        isTraining : int
         Resources : int
     }
-
     static member Parse(str : string) =
         let data = str.Split([| ',' |])
         {
@@ -31,7 +31,8 @@ type BasicUnitInfo =
             Energy    = Int32.Parse(data.[7])
             OrderTimer = Int32.Parse(data.[8])
             OrderID    = Int32.Parse(data.[9])
-            Resources  = Int32.Parse(data.[10])
+            isTraining  = Int32.Parse(data.[10])
+            Resources  = Int32.Parse(data.[11])
         }
     override this.ToString() =
         sprintf 
@@ -61,6 +62,13 @@ let isCommandCenter typeID =
     | UnitID.ZergHatchery
     | UnitID.ProtosNexus 
         -> true
+    | _ -> false
+
+let isBuilding bui =
+    match enum<UnitID> bui.TypeID with
+    | UnitID.TerranSCV 
+    | UnitID.ZergDrone
+    | UnitID.ProtosProbe -> true
     | _ -> false
     
 let getUnitName bui =   
@@ -121,8 +129,7 @@ type PlayerState =
                     CanTech     = parseBits parts.[6]
                     CanUpgrade  = parseBits parts.[7]
                     Units       = parseUnits parts.[8]
-                }
-            
+                }            
             gameState
     
 type UnitType =
@@ -152,6 +159,7 @@ type UnitType =
         IsFlyer         : string
         IsSpellCaster   : string
         Worker          : string
+        CanBuildAddon   : string
         WhatBuilds      : string
     }
     static member Parse(str : string) =
@@ -178,11 +186,12 @@ type UnitType =
             GroundDamage    = parts.[18]
             AirRange        = parts.[19]
             AirDamage       = parts.[20]
-            IsBuilding      = parts.[21]
+            IsBuilding      = parts.[21]//Boolean.Parse(parts.[21])
             IsFlyer         = parts.[22]
             IsSpellCaster   = parts.[23]
             Worker          = parts.[24]
-            WhatBuilds      = parts.[25]
+            CanBuildAddon   = parts.[25]
+            WhatBuilds      = parts.[26]
         }
         
 type Location = 
