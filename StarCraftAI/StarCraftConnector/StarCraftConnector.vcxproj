@@ -53,11 +53,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BWApiSerializer.cpp" />
+    <ClCompile Include="BWTASerializer.cpp" />
     <ClCompile Include="StarCraftConnector.cpp" />
     <ClCompile Include="StarCraftConnectorDll.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BWApiSerializer.h" />
+    <ClInclude Include="BWTASerializer.h" />
     <ClInclude Include="StarCraftConnector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

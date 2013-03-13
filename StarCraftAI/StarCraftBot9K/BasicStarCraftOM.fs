@@ -131,7 +131,21 @@ type PlayerState =
                     Units       = parseUnits parts.[8]
                 }            
             gameState
-    
+
+//type BaseLocation = 
+//    {
+//        IsStartLocation : int
+//		Gas             : int
+//		Minerals        : int
+//    }
+//    static member Parse(str : string) =
+//        let parts = str.Split([| ',' |])
+//        {
+//            IsStartLocation = Int32.Parse(parts.[0])
+//            Gas             = Int32.Parse(parts.[1])
+//            Minerals        = Int32.Parse(parts.[2])
+//        }
+
 type UnitType =
     {
         ID      : int

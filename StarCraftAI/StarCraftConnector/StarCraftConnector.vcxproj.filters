@@ -24,12 +24,18 @@
     <ClCompile Include="StarCraftConnectorDll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BWTASerializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BWApiSerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StarCraftConnector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BWTASerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

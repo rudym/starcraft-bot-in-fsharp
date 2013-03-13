@@ -4,6 +4,7 @@
  */
 #include "StarCraftConnector.h"
 #include "BWApiSerializer.h"
+#include "BWTASerializer.h"
 
 using namespace std;
 using namespace BWAPI;
@@ -130,7 +131,7 @@ void StarCraftConnector::onStart()
 	string upgradeTypes = BWApiSerializer::GetUpgradeTypes();
 	char *utbuf = (char*) upgradeTypes.c_str();
 	send(m_proxyBotSocket, utbuf, upgradeTypes.size(), 0);
-
+	
 	// At this point we are done dumping meta info and
 	// will just spew everything we know on each frame.
 }
@@ -151,38 +152,43 @@ void StarCraftConnector::onFrame()
 	if (analysis_just_finished)
 	{
 		Broodwar->printf("Finished analyzing map.");
-		analysis_just_finished=false;
+		analysis_just_finished=false;		
+
+		//send info about map
+		//string unitTypes = BWTASerializer::GetBaseLocations();
+		//char *utBuf = (char*)unitTypes.c_str();
+		//send(m_proxyBotSocket, utBuf, unitTypes.size(), 0);	
 	}
 
-	if (analyzed && Broodwar->getFrameCount()%30==0)
-  {
-    //order one of our workers to guard our chokepoint.
-    for(std::set<Unit*>::const_iterator i=Broodwar->self()->getUnits().begin();i!=Broodwar->self()->getUnits().end();i++)
-    {
-      if ((*i)->getType().isWorker())
-      {
-        //get the chokepoints linked to our home region
-        std::set<BWTA::Chokepoint*> chokepoints= home->getChokepoints();
-        double min_length=10000;
-        BWTA::Chokepoint* choke=NULL;
+	/*if (analyzed && Broodwar->getFrameCount()%30==0)
+	{	*/	
+		////order one of our workers to guard our chokepoint.
+		//for(std::set<Unit*>::const_iterator i=Broodwar->self()->getUnits().begin();i!=Broodwar->self()->getUnits().end();i++)
+		//{
+		//  if ((*i)->getType().isWorker())
+		//  {
+		//	//get the chokepoints linked to our home region
+		//	std::set<BWTA::Chokepoint*> chokepoints= home->getChokepoints();
+		//	double min_length=10000;
+		//	BWTA::Chokepoint* choke=NULL;
 
-        //iterate through all chokepoints and look for the one with the smallest gap (least width)
-        for(std::set<BWTA::Chokepoint*>::iterator c=chokepoints.begin();c!=chokepoints.end();c++)
-        {
-          double length=(*c)->getWidth();
-          if (length<min_length || choke==NULL)
-          {
-            min_length=length;
-            choke=*c;
-          }
-        }
+		//	//iterate through all chokepoints and look for the one with the smallest gap (least width)
+		//	for(std::set<BWTA::Chokepoint*>::iterator c=chokepoints.begin();c!=chokepoints.end();c++)
+		//	{
+		//	  double length=(*c)->getWidth();
+		//	  if (length<min_length || choke==NULL)
+		//	  {
+		//		min_length=length;
+		//		choke=*c;
+		//	  }
+		//	}
 
-        //order the worker to move to the center of the gap
-        (*i)->rightClick(choke->getCenter());
-        break;
-      }
-    }
-  }
+		//	//order the worker to move to the center of the gap
+		//	(*i)->rightClick(choke->getCenter());
+		//	break;
+		//  }
+		//}
+	/*}*/
 
 	// Figure out what units and upgrades the bot can produce
 	bool unitProduction[230];
@@ -433,9 +439,6 @@ void StarCraftConnector::onSendText(string text)
 			Broodwar->printf("Analyzing map... this may take a minute");
 			
 			CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)AnalyzeThread, NULL, 0, dwThreadID);
-			
-			Broodwar->printf("test after  CreateThread() ");
-			Broodwar->printf("Analyzing map... this may take a minute");
 		}
 	} else
 	{
@@ -837,9 +840,7 @@ TilePosition StarCraftConnector::getTilePosition(int x, int y)
 
 DWORD WINAPI AnalyzeThread()
 {
-  Broodwar->printf("test before   BWTA::analyze(); ");
   BWTA::analyze();
-  Broodwar->printf("test after analyze(); !!!");
 
   //self start location only available if the map has base locations
   if (BWTA::getStartLocation(BWAPI::Broodwar->self())!=NULL)
@@ -854,7 +855,7 @@ DWORD WINAPI AnalyzeThread()
   analyzed   = true;
   analysis_just_finished = true;
 
-  Broodwar->printf("test before    return 0; ");
+  //Broodwar->printf("test before    return 0; ");
   return 0;
 }
 

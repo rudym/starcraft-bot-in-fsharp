@@ -3,6 +3,7 @@
 // NOTE: This code makes HEAVY use of building up immutable
 // strings. This is crazy inefficent. Please find and replace
 // with any STL string builder type.
+// mb stl:rope http://stackoverflow.com/questions/6834343/ultra-quick-way-to-concatenate-byte-values
 
 #include <sstream>
 
