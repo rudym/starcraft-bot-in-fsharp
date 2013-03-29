@@ -29,4 +29,4 @@ Working with sources:
  b. Second project is named StarCraftBot9K Client (C#) will listen for those events.
  c. And finally StarCraftBot9K (F#) will do decision making.
 
-P.S. And I recommend to use ChaosLauncher for running the game: http://wiki.teamliquid.net/starcraft/Chaoslauncher
+P.S. Also I recommend to use ChaosLauncher for running the game: http://wiki.teamliquid.net/starcraft/Chaoslauncher
