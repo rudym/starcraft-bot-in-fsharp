@@ -1,7 +1,7 @@
----------------
+-------------------------------------------
 | starcraft-bot-in-fsharp on BWAPI 3.7.4  |
 |    based on Chris Smith's sources       |
----------------
+-------------------------------------------
 
 THE PRELUDE		http://blogs.msdn.com/b/chrsmith/archive/2010/03/18/writing-a-starcraft-bot-in-f.aspx
 
@@ -26,6 +26,10 @@ Instruction:
 
  c. And finally StarCraftBot9K (F#) will do decision making. 
 
-As Chris already written just unleash StarCraftBot9K! Simply start run the application. It will begin listening to the socket until StarCraftConnector begins broadcasting.
+3. How to start your bot:
+ a. Launch the project (for example by running it in debug mode)
+ b. Launch the game! (And create your custom battle)
 
-3. While you started "AIModuleLoader to StarcraftConnector" and "StarCraftBot9KClient" just open Chaoslauncher from Extra, open the game and start custom battle. That's it!
+As Chris already written in his blog just unleash StarCraftBot9K! Simply start run the application. It will begin listening to the socket until StarCraftConnector begins broadcasting.
+
+P.S. And I recommend to use ChaosLauncher for running the game: http://www.teamliquid.net/forum/viewmessage.php?topic_id=65196
