@@ -11,22 +11,27 @@ The BWAPI web site	http://code.google.com/p/bwapi/
 
 Instruction:
 
-1. Download last version of BWAPI https://code.google.com/p/bwapi/
- a. Copy the contents of Chaoslauncher/ to your Chaos Launcher folder.
- b. Copy the contents of Starcraft/ to your actual Starcraft folder.
- c. Copy the contents of WINDOWS/ to your C:\WINDOWS or C:\WINNT folder or...  You can actually copy these Dlls to anywhere on your system PATH.  
+1. Download 3.7.4 version of BWAPI https://code.google.com/p/bwapi/
+ a. Copy the contents of Chaoslauncher/ (resides in downloaded bwapi) to your Chaos Launcher folder.
+ b. Copy the contents of Starcraft/ (resides in downloaded bwapi) to your actual Starcraft folder.
+ c. Copy the contents of WINDOWS/ (resides in downloaded bwapi) to your C:\WINDOWS or C:\WINNT folder or...  You can actually copy these Dlls to anywhere on your system PATH.  
 
 2. How to start your bot:
  a. Launch the project (for example by running it in debug mode)
  b. Enter the solution directory StarCraftConnector\bin\Release and copy StarcraftConnector.dll to the game folder: Starcraft\bwapi-data\AI. Move back to Starcraft\bwapi-data and open bwapi.ini file. Change the name of AI there ai = bwapi-data\AI\ExampleAIModule.dll to yours (probably StarcraftConnector.dll)
  d. Launch the game! (And create your custom battle)
 
-As Chris already written in his blog just unleash StarCraftBot9K! Simply start run the application. It will begin listening to the socket until StarCraftConnector begins broadcasting.
+As Chris already written in his blog just unleash StarCraftBot9K! Simply start the application. The application will start to listen to the socket until StarCraftConnector begins broadcasting.
 
 
-Working with sources:
- a. There are three projects in the solution. First is StarCraftConnector  which in output gives StarCraftConnector.dll, which is the C++ library built on top of BWAPI that broadcasts game state to a socket. Later a C# application will listen to that data and send messages back to the StarCraft game.
- b. Second project is named StarCraftBot9K Client (C#) will listen for those events.
- c. And finally StarCraftBot9K (F#) will do decision making.
+Working with the sources:
+ a. There are three projects in the solution. First is StarCraftConnector which in output gives StarCraftConnector.dll, which is the C++ library built on top of BWAPI that broadcasts game state to a socket. (Later a C# application will listen to that data and send messages back to the StarCraft game.)
+ b. Second project is named StarCraftBot9K Client (C#) which will listen for those events.
+ c. And finally StarCraftBot9K (F#). Here you write the code where the decision making and the heart of the bot will reside.
 
 P.S. Also I recommend to use ChaosLauncher for running the game: http://wiki.teamliquid.net/starcraft/Chaoslauncher
+
+
+TODO:
+SWIG http://www.swig.org/
+Probably change the architecture to shared memory bridge. https://code.google.com/p/jnibwapi/
